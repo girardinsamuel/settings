@@ -7,8 +7,7 @@
 
 ## Terminal
 * iTerm2 on MacOS
-* zsh / oh-my-zsh
-* fish / oh-my-fish
+* zsh + oh-my-zsh + Meslo font + agnoster theme
 * tmux
 
 WIP
