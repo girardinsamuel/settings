@@ -6,7 +6,7 @@ All settings, config files and tools used on my computer
 
 To sync settings between computer and Github run 
 ```
-./script/sync_settings.sh
+./scripts/sync_settings.sh
 ```
 
 
