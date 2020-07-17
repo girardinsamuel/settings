@@ -1,5 +1,9 @@
 # Tools
 
+## Browsing apps
+* Mac shortcuts
+* **Spectacle** app to handle windows layout
+
 ## Code writing
 * Vim
 * VS Code
@@ -10,4 +14,21 @@
 * zsh + oh-my-zsh + Meslo font + agnoster theme
 * tmux
 
-WIP
+## Browser
+* Firefox
+* Extensions :
+  * TODO
+
+
+## Miscelleanous
+
+### Music handling
+
+* Spotify dev account (API keys)
+* Spotify CLI : https://github.com/hnarayanan/shpotify `brew install shpotify`
+
+### Notes taking
+* TODO
+
+### Job/Task timer to keep track of time
+* TODO
