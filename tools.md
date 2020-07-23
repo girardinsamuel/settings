@@ -5,9 +5,7 @@
 * **Spectacle** app to handle windows layout
 
 ## Code writing
-* Vim
-* VS Code
-* PyCharm
+* Neovim
 
 ## Terminal
 * iTerm2 on MacOS
