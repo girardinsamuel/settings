@@ -7,7 +7,7 @@ export ZSH="/Users/samuel/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -61,6 +61,22 @@ DISABLE_UPDATE_PROMPT=true
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  autojump
+  colored-man-pages
+  django
+  docker
+  emoji
+  npm
+  osx
+  pip
+  postgres
+  pyenv
+  python
+  tmux
+  web-search
+  zsh_reload
+  dotenv
+  z zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -108,3 +124,10 @@ if [ -f '/Users/samuel/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/samuel/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/samuel/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/samuel/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Remove username from shell prompt to save spaces
+prompt_context(){}
+
+# link Rubies to Homebrew's OpenSSL 1.1
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+# Note: this may interfere with building old versions of Ruby (e.g <2.4) that use OpenSSL <1.1.
