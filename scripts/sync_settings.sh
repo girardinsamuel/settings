@@ -5,7 +5,7 @@
 echo "Fetching config files ..."
 cp ~/.zshrc config/
 cp ~/.bash_profile config/
-cp ~/.nvim/init.vim config/
+cp ~/.config/nvim/init.vim config/
 
 # add and commit files
 git add .
