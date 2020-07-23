@@ -4,7 +4,7 @@
 # TODO: define loop here with array of files ?
 echo "Fetching config files ..."
 cp ~/.zshrc config/
-cp ~/.bashrc config/
+cp ~/.bash_profile config/
 cp ~/.nvim/init.vim config/
 
 # add and commit files
