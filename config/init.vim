@@ -6,6 +6,9 @@ syntax on
 " use system clipboard, not only vim registers to paste from
 set clipboard^=unnamedplus
 
+" case-insensitive search with lowercase and sensitive otherwise
+set smartcase
+
 set path+=**
 set wildmenu
 
@@ -34,6 +37,12 @@ nnoremap <CR> :noh<CR>
 " highlight trailing whitespaces only in normal mode (not when typing)
 highlight TrailingWhitespace ctermbg=red guibg=red
 match TrailingWhitespace /\s\+\%#\@<!$/
+
+" highlight quickly copied(yanked) zone
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+augroup END
 
 " File browsing
 nnoremap <silent> <Leader>f :Files<CR>
@@ -90,14 +99,14 @@ let g:python3_host_prog = '/Users/samuel/.pyenv/versions/3.8.3/bin/python'
 let python_highlight_all=1
 syntax on
 
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+" au BufNewFile,BufRead *.py
+"     \ set tabstop=4
+"     \ set softtabstop=4
+"     \ set shiftwidth=4
+"     \ set textwidth=79
+"     \ set expandtab
+"     \ set autoindent
+"     \ set fileformat=unix
 
 "python with virtualenv support
 py << EOF
@@ -109,20 +118,30 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-" Web
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+" " Web
+" au BufNewFile,BufRead *.js, *.html, *.css
+"     \ set tabstop=2
+"     \ set softtabstop=2
+"     \ set shiftwidth=2
+
+" autocomplete close info window after completion
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " vim-airline configuration
 " display buffers when only one tab
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+
+let g:deoplete#enable_at_startup = 1
+
+" Run black on save of python files 
+autocmd BufWritePre *.py execute ':Black'
 
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 
 Plug 'tpope/vim-commentary'
 
@@ -144,10 +163,20 @@ Plug 'nvie/vim-flake8'
 
 Plug 'psf/black', { 'branch': 'stable' }
 
-"Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi' " Python completion
+
+" auto bracket/quote completion
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'machakann/vim-highlightedyank'
+
+Plug 'dense-analysis/ale'
 
 call plug#end()
 

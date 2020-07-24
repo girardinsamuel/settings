@@ -11,4 +11,7 @@
 ```echo 'alias tb="nc termbin.com 9999"' >> .bash_profile```
 ```echo 'test' | tb```
 
+### Commands history
 
+* First, history can be browsed easily with zsh shell
+* Then type `Ctrl+R` and we can fuzzy search history with `fzf` tool

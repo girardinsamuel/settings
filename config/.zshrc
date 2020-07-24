@@ -137,3 +137,11 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # Config for z plugin 
 export _Z_CMD="j"
+
+# Improve coloration of common tools
+alias cat="bat"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# Amazing ls improvements
+alias ls="exa"
+

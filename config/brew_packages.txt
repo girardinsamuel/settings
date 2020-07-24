@@ -5,6 +5,7 @@ autoconf
 autojump
 automake
 awscli
+bat
 bdw-gc
 boost
 boost-build
@@ -28,6 +29,7 @@ elasticsearch@2.4
 elinks
 epsilon
 erlang
+exa
 exif
 expat
 fontconfig
