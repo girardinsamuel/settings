@@ -17,6 +17,7 @@ cmake
 coreutils
 dbus
 dbus-glib
+diff-so-fancy
 docbook
 docbook-xsl
 docker

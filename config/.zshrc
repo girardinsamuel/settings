@@ -132,4 +132,8 @@ prompt_context(){}
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 # Note: this may interfere with building old versions of Ruby (e.g <2.4) that use OpenSSL <1.1.
 
+# Config for FZF plugin
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Config for z plugin 
+export _Z_CMD="j"

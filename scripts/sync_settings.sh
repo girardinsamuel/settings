@@ -6,6 +6,7 @@ echo "Fetching config files ..."
 cp ~/.zshrc config/
 cp ~/.bash_profile config/
 cp ~/.config/nvim/init.vim config/
+cp ~/.gitconfig config/
 
 # get homebrew installed packages
 brew list > config/brew_packages.txt
