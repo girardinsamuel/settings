@@ -3,18 +3,51 @@ filetype plugin on
 set autoindent
 syntax on
 
-set clipboard=unnamed
+" use system clipboard, not only vim registers to paste from
+set clipboard^=unnamedplus
+
 set path+=**
 set wildmenu
 
 " Remap leader key to ,
 :let mapleader = ","
 
+" command for reloading vim config
+nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+
+" move between buffers more easily
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>p :bp<CR>
+
 "split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <Leader>j <C-W><C-J><CR>
+nnoremap <Leader>k <C-W><C-K><CR>
+nnoremap <Leader>l <C-W><C-L><CR>
+nnoremap <Leader>h <C-W><C-H><CR>
+nnoremap <Leader>v <C-W>v
+nnoremap <Leader>h <C-W>h
+nnoremap <Leader>w <C-W>
+
+" clear search results quickly
+nnoremap <CR> :noh<CR>
+
+" highlight trailing whitespaces only in normal mode (not when typing)
+highlight TrailingWhitespace ctermbg=red guibg=red
+match TrailingWhitespace /\s\+\%#\@<!$/
+
+" File browsing
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>r :Rg<CR>
+nnoremap <silent> <Leader>/ :BLines<CR>
+nnoremap <silent> <Leader>' :Marks<CR>
+nnoremap <silent> <Leader>g :Commits<CR>
+nnoremap <silent> <Leader>H :Helptags<CR>
+nnoremap <silent> <Leader>hh :History<CR>
+
+" for searching in files with :Files, tell rg not to search in filenames
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
 
 " Enable folding
 set foldmethod=indent
@@ -27,15 +60,23 @@ set updatetime=100
 " file tree
 map <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " classic stuff
-set number
+" both absolute and relative line numbers are enabled by default, which produces “hybrid” line numbers. When entering insert mode, relative line numbers are turned off, leaving absolute line numbers turned on
+set number  relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 set tw=79
 set colorcolumn=80
 
 " flagging unnecessary whitespaces
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set encoding=utf-8
 
@@ -68,24 +109,30 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-" Web 
+" Web
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
 
+" vim-airline configuration
+" display buffers when only one tab
+let g:airline#extensions#tabline#enabled = 1
+
 " Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
 call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/YouCompleteMe'
 
-Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-commentary'
 
+Plug 'vim-airline/vim-airline'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'airblade/vim-gitgutter'
+
+Plug 'tpope/vim-fugitive'
 
 Plug 'preservim/nerdtree'
 
@@ -97,4 +144,10 @@ Plug 'nvie/vim-flake8'
 
 Plug 'psf/black', { 'branch': 'stable' }
 
+"Plug 'sheerun/vim-polyglot'
+
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 call plug#end()
+

@@ -35,6 +35,7 @@ alias aws_ec2="ssh -o StrictHostKeyChecking=no ec2-user@15.188.53.189"
 alias addalias="vim ~/.bash_profile"
 alias s="spotify"
 alias tb="nc termbin.com 9999"
+alias n="nvim"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Add Visual Studio Code (code)

@@ -131,3 +131,5 @@ prompt_context(){}
 # link Rubies to Homebrew's OpenSSL 1.1
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 # Note: this may interfere with building old versions of Ruby (e.g <2.4) that use OpenSSL <1.1.
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
