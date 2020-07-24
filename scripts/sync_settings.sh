@@ -8,7 +8,7 @@ cp ~/.bash_profile config/
 cp ~/.config/nvim/init.vim config/
 
 # get homebrew installed packages
-brew list | config/brew_packages.txt
+brew list > config/brew_packages.txt
 
 # add and commit files
 git add .
