@@ -145,3 +145,10 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # Amazing ls improvements
 alias ls="exa"
 
+# Git
+alias gb='fzf-git-branch'
+alias gco='fzf-git-checkout'
+
+# sync computer configs quickly
+alias syncconf='~/Outils/settings/scripts/sync_settings.sh'
+

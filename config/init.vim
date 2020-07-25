@@ -50,7 +50,7 @@ nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>r :Rg<CR>
 nnoremap <silent> <Leader>/ :BLines<CR>
 nnoremap <silent> <Leader>' :Marks<CR>
-nnoremap <silent> <Leader>g :Commits<CR>
+nnoremap <silent> <Leader>c :Commits<CR>
 nnoremap <silent> <Leader>H :Helptags<CR>
 nnoremap <silent> <Leader>hh :History<CR>
 
@@ -137,6 +137,11 @@ let g:deoplete#enable_at_startup = 1
 
 " Run black on save of python files 
 autocmd BufWritePre *.py execute ':Black'
+
+" Git
+nmap <Leader>gs :G<CR>
+nmap <Leader>gf :diffget //2<CR>
+nmap <Leader>gj :diffget //3<CR>
 
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
