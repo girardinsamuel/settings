@@ -5,8 +5,8 @@
 echo "Fetching config files ..."
 cp ~/.zshrc config/
 cp ~/.bash_profile config/
-cp ~/.config/nvim/init.vim config/vim/
-cp -R ~/.vim/ftplugin/*.vim config/vim/ftplugin/
+# cp -R ~/.config/nvim/ config/vim/
+rsync -r --exclude '~/.config/nvim/plugins' ~/.config/nvim config/vim
 cp ~/.gitconfig config/
 
 # get homebrew installed packages
