@@ -39,5 +39,7 @@ Plug 'dense-analysis/ale'
 
 Plug 'metakirby5/codi.vim'
 
+Plug 'tpope/vim-surround'
+
 call plug#end()
 

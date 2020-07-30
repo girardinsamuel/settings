@@ -41,7 +41,5 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-set encoding=utf-8
-" stop writing to history file
-let g:netrw_dirhistmax=0
 
+set encoding=utf-8
