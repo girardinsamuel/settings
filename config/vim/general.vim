@@ -41,5 +41,7 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+" authorize comments in json files (jsonc), for coc-settings.json for example
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 set encoding=utf-8

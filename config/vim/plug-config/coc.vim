@@ -1,0 +1,1 @@
+tailwindCSS.htmlLanguages=[ "blade", "edge", "eelixir", "ejs", "elixir", "elm", "erb", "eruby", "haml", "handlebars", "html", "HTML (EEx)", "HTML (Eex)", "html.twig", "jade", "leaf", "markdown", "njk", "nunjucks", "php", "razor", "slim", "svelte", "twig", "vue", "xml" ]

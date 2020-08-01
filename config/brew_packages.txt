@@ -154,6 +154,7 @@ popt
 postgis
 postgresql
 potrace
+pre-commit
 proj
 protobuf
 protobuf-c
