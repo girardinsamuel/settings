@@ -44,6 +44,7 @@ gdbm
 gdk-pixbuf
 geos
 gettext
+gh
 ghostscript
 giflib
 git
@@ -67,6 +68,8 @@ gtkmm
 gts
 harfbuzz
 hdf5
+heroku
+heroku-node
 hicolor-icon-theme
 icu4c
 ilmbase
@@ -138,6 +141,7 @@ nss
 numpy
 openblas
 openexr
+openjdk
 openjpeg
 openssl@1.1
 p11-kit

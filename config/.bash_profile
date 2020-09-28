@@ -28,14 +28,25 @@ alias ppt="python3 -m http.server"
 alias archibien_site_preprod="ssh -i '/Users/samuel/.ssh/archibien/id_rsa_do_archibien_site_preprod' deployer@46.101.6.44"
 alias archibien_s="export DJANGO_SETTINGS_MODULE=config.settings.local"
 alias gs="git status"
+alias gl="git log --oneline"
 alias gpd="git push -o ci.variable='AUTO_DEPLOY=true'"
 alias gpdd="git push -o ci.variable='AUTO_DEPLOY=true' -o ci.variable='AUTO_DEPLOY_PROD=true'"
 alias ec2="ssh -i '/Users/samuel/.ssh/archibien/aws_ec2_t2_micro_samuel.pem' ec2-user@ec2-3-250-53-22.eu-west-1.compute.amazonaws.com"
 alias aws_ec2="ssh -o StrictHostKeyChecking=no ec2-user@15.188.53.189"
-alias addalias="vim ~/.bash_profile"
+alias addalias="nvim ~/.bash_profile"
 alias s="spotify"
 alias tb="nc termbin.com 9999"
 alias n="nvim"
+alias cc="echo '  Types of commits:
+  * build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+  * ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+  * docs: Documentation only changes
+  * feat: A new feature
+  * fix: A bug fix
+  * perf: A code change that improves performance
+  * refactor: A code change that neither fixes a bug nor adds a feature
+  * style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+  * test: Adding missing tests or correcting existing tests'"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Add Visual Studio Code (code)
@@ -44,6 +55,9 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 # pyenv and virtualwrapper
 eval "$(pyenv init -)"
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+
+# cookiecutter preferences
+export COOKIECUTTER_CONFIG="/Users/samuel/.cookiecutter.yaml"
 
 # golang
 export GOPATH=$HOME/go-workspace

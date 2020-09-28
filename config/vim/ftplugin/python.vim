@@ -4,8 +4,8 @@ set softtabstop=4 " when hitting <BS>, pretend like a tab is removed, even if sp
 set tabstop=4 " tabs are n spaces
 
 " wrap at N and color N+1 column
-set textwidth=79
-set colorcolumn=80
+" set textwidth=79
+set colorcolumn=100
 
 " linting / fixing
 let b:ale_fixers = ['black']

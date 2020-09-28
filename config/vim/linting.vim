@@ -12,7 +12,7 @@ highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 " \   '*': ['remove_trailing_lines', 'trim_whitespace']
 " \}
 
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 
 " Disable auto-completion as it's the job of coc
 let g:ale_completion_enabled = 0

@@ -76,7 +76,6 @@ plugins=(
   web-search
   zsh_reload
   dotenv
-  z zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -107,11 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.bash_profile
 source /usr/local/bin/virtualenvwrapper.sh
-source ~/.bin/tmuxinator.zsh
 export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
@@ -135,7 +131,7 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 # Config for FZF plugin
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Config for z plugin 
+# Config for z plugin
 export _Z_CMD="j"
 
 # Improve coloration of common tools
@@ -150,5 +146,7 @@ alias gb='fzf-git-branch'
 alias gco='fzf-git-checkout'
 
 # sync computer configs quickly
-alias syncconf='~/Outils/settings/scripts/sync_settings.sh'
+alias syncconf='cd ~/Outils/settings/ && ./scripts/sync_settings.sh'
 
+# add GitHub CLI auto-completion
+eval "$(gh completion -s zsh)"
